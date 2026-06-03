@@ -161,28 +161,50 @@
     max-width: 36ch;
   }
 
-  /* Problem — 3 oversized numbered statements */
-  .problem ol { list-style: none; padding: 0; margin: 36px 0 0; counter-reset: p; }
-  .problem li {
-    counter-increment: p;
-    padding: 26px 0 26px 60px;
-    position: relative;
-    border-top: 1px solid var(--rule);
-    color: var(--ink);
-    font-family: "Instrument Serif", serif;
-    font-size: clamp(20px, 5.2vw, 24px);
-    font-style: italic;
-    line-height: 1.25;
-    letter-spacing: -0.005em;
+  /* Problem — 3 horizontal 3D cards, icon on top, text below */
+  .problem-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 36px;
   }
-  .problem li:last-child { border-bottom: 1px solid var(--rule); }
-  .problem li::before {
-    content: counter(p, decimal-leading-zero);
-    position: absolute; left: 0; top: 32px;
+  .pc {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 18px 14px 16px;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    min-height: 150px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .pc:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+  .pc .pc-num {
     font-family: "JetBrains Mono", monospace;
-    font-size: 11px; letter-spacing: 0.07em;
+    font-size: 10px;
+    letter-spacing: 0.08em;
     color: var(--accent);
-    font-style: normal;
+    text-transform: uppercase;
+  }
+  .pc .pc-icon {
+    width: 34px; height: 34px;
+    color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pc .pc-icon svg { width: 100%; height: 100%; display: block; }
+  .pc .pc-text {
+    font-size: 13.5px;
+    line-height: 1.38;
+    color: var(--ink);
+    margin-top: auto;
+  }
+  @media (max-width: 380px) {
+    .problem-cards { gap: 8px; }
+    .pc { padding: 14px 10px 12px; min-height: 140px; }
+    .pc .pc-text { font-size: 12.5px; }
   }
 
   /* Sheet mock — kept */
@@ -457,11 +479,50 @@
   <div class="wrap">
     <div class="mono seclabel"><span class="n">02</span><span class="name">The problem</span></div>
     <h2 class="display">Three things <em class="serif">you can't afford</em>.</h2>
-    <ol>
-      <li>Hours scrolling for hooks that mostly never come.</li>
-      <li>A feed that drifts away from your niche the moment you stop training it.</li>
-      <li>Reels you remember and lose, because you watched them on the wrong day.</li>
-    </ol>
+    <div class="problem-cards">
+
+      <div class="pc">
+        <div class="pc-num">01</div>
+        <div class="pc-icon">
+          <!-- Hourglass: time draining -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h12M6 21h12"/>
+            <path d="M8 3v3a4 4 0 0 0 4 4a4 4 0 0 0 4-4V3"/>
+            <path d="M8 21v-3a4 4 0 0 1 4-4a4 4 0 0 1 4 4v3"/>
+            <path d="M10.5 17.5h3"/>
+          </svg>
+        </div>
+        <div class="pc-text">Hours scrolling for hooks that never come.</div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-num">02</div>
+        <div class="pc-icon">
+          <!-- Arrow leaving target circle: feed drifts -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="8" cy="16" r="4"/>
+            <path d="M10 14L20 4"/>
+            <path d="M14 4h6v6"/>
+          </svg>
+        </div>
+        <div class="pc-text">A feed that drifts from your niche.</div>
+      </div>
+
+      <div class="pc">
+        <div class="pc-num">03</div>
+        <div class="pc-icon">
+          <!-- Bookmark with fading dots: remember and lose -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 3h12v15l-6-3.5L6 18z"/>
+            <circle cx="8" cy="21" r=".8" fill="currentColor" stroke="none"/>
+            <circle cx="13" cy="21.5" r=".6" fill="currentColor" stroke="none" opacity=".7"/>
+            <circle cx="17" cy="22" r=".5" fill="currentColor" stroke="none" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="pc-text">Reels you remember, then lose.</div>
+      </div>
+
+    </div>
   </div>
 </section>
 
