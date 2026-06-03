@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Customise Instagram Scraper — Agentropic</title>
-<meta name="description" content="Human-in-the-loop AI for Instagram Reels. Autonomous agents do the watching from a dedicated burner account. A real AI engineer does the tuning, week after week." />
+<meta name="description" content="Human-in-the-loop AI for Instagram Reels. Autonomous agents do the watching from a dedicated burner. A real AI engineer does the tuning." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -36,77 +36,69 @@
     overflow-x: hidden;
   }
 
-  /* Subtle paper grain */
   body::before {
     content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    opacity: .045;
-    mix-blend-mode: multiply;
+    position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    opacity: .045; mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 
-  /* Layout */
   main { position: relative; z-index: 2; }
-  .wrap {
-    width: 100%;
-    max-width: 640px;
-    margin-inline: auto;
-    padding-inline: 24px;
-  }
-  section { padding-block: 64px; position: relative; }
+  .wrap { width: 100%; max-width: 640px; margin-inline: auto; padding-inline: 24px; }
+  section { padding-block: 88px 88px; position: relative; }
   section + section { border-top: 1px solid var(--rule); }
 
   /* Typography */
   .display {
     font-family: "Instrument Serif", "Times New Roman", serif;
     font-weight: 400;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.022em;
     line-height: 1.02;
   }
   .mono {
     font-family: "JetBrains Mono", ui-monospace, monospace;
     font-weight: 500;
-    font-size: 12px;
-    letter-spacing: 0.04em;
+    font-size: 11px;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
   .eyebrow {
     color: var(--accent);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-flex; align-items: center; gap: 10px;
   }
-  .eyebrow::before {
-    content: "";
-    width: 18px; height: 1px; background: var(--accent);
-    display: inline-block;
-  }
-  h1 { font-size: clamp(40px, 11vw, 60px); margin: 12px 0 20px; }
-  h2 { font-size: clamp(28px, 7vw, 36px); margin: 12px 0 16px; }
-  h3 { font-size: 20px; margin: 0 0 8px; font-weight: 600; letter-spacing: -0.005em; }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--accent); display: inline-block; }
+
+  h1 { font-size: clamp(46px, 13vw, 68px); margin: 14px 0 24px; }
+  h2 { font-size: clamp(34px, 9vw, 44px); margin: 18px 0 0; }
+  h3 { font-size: 18px; margin: 0 0 6px; font-weight: 600; letter-spacing: -0.005em; }
   p  { margin: 0 0 14px; color: var(--ink-2); }
-  p.lede { color: var(--ink); font-size: 19px; line-height: 1.5; }
   em.serif { font-family: "Instrument Serif", serif; font-style: italic; font-size: 1.08em; color: var(--ink); }
 
   /* Hero */
-  .hero { padding-block: 80px 72px; border-top: none; }
+  .hero { padding-block: 76px 60px; border-top: none; }
   .hero h1 .it { font-style: italic; }
-  .hero .strip {
-    margin-top: 26px;
-    color: var(--ink-3);
-    display: flex; flex-wrap: wrap; gap: 8px 12px;
-    font-size: 13px;
+  .hero .sub {
+    margin-top: 20px;
+    font-size: 18px;
+    color: var(--ink-2);
+    line-height: 1.45;
+    max-width: 30ch;
   }
-  .hero .strip span::before { content: "·"; margin-right: 12px; color: var(--rule); }
-  .hero .strip span:first-child::before { content: ""; margin: 0; }
+  .hero .cta-row { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero .trustband {
+    margin-top: 42px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .hero .trustband .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; }
+  .hero .trustband .meta { font-size: 12px; color: var(--ink-3); letter-spacing: .02em; }
+  .hero .trustband .meta strong { color: var(--ink); font-weight: 600; }
 
-  /* CTA button */
+  /* CTA */
   .btn {
     display: inline-flex; align-items: center; gap: 12px;
-    padding: 16px 22px;
+    padding: 15px 22px;
     background: var(--ink);
     color: var(--paper);
     border: none; border-radius: 999px;
@@ -123,39 +115,61 @@
   }
   .btn:hover .arrow { transform: translateX(3px); }
   .btn-ghost {
-    background: transparent; color: var(--ink); border: 1px solid var(--ink);
-    box-shadow: none;
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--ink); box-shadow: none;
   }
   .btn-ghost:hover { background: var(--ink); color: var(--paper); }
 
   /* Section heading lockup */
-  .seclabel { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .seclabel { display: flex; align-items: center; gap: 12px; }
   .seclabel .n { color: var(--accent); }
   .seclabel .name { color: var(--ink-3); }
 
-  /* Problem list */
-  .problem ol { list-style: none; padding: 0; margin: 24px 0 0; counter-reset: p; }
+  /* Pull statements (replace paragraphs) */
+  .statement {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: clamp(22px, 5.6vw, 26px);
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 22px 0 0;
+    letter-spacing: -0.01em;
+  }
+  .one-line {
+    margin-top: 18px;
+    font-size: 16px;
+    color: var(--ink-2);
+    line-height: 1.45;
+    max-width: 36ch;
+  }
+
+  /* Problem — 3 oversized numbered statements */
+  .problem ol { list-style: none; padding: 0; margin: 36px 0 0; counter-reset: p; }
   .problem li {
     counter-increment: p;
-    padding: 18px 0 18px 44px;
+    padding: 26px 0 26px 60px;
     position: relative;
     border-top: 1px solid var(--rule);
     color: var(--ink);
-    font-size: 17px;
-    line-height: 1.45;
+    font-family: "Instrument Serif", serif;
+    font-size: clamp(20px, 5.2vw, 24px);
+    font-style: italic;
+    line-height: 1.25;
+    letter-spacing: -0.005em;
   }
   .problem li:last-child { border-bottom: 1px solid var(--rule); }
   .problem li::before {
     content: counter(p, decimal-leading-zero);
-    position: absolute; left: 0; top: 22px;
+    position: absolute; left: 0; top: 32px;
     font-family: "JetBrains Mono", monospace;
-    font-size: 11px; letter-spacing: 0.05em;
+    font-size: 11px; letter-spacing: 0.07em;
     color: var(--accent);
+    font-style: normal;
   }
 
-  /* What you get — sheet mock */
+  /* Sheet mock — kept */
   .sheet {
-    margin-top: 28px;
+    margin-top: 32px;
     background: #fff;
     border: 1px solid var(--rule);
     border-radius: 10px;
@@ -171,7 +185,7 @@
     padding: 8px 12px;
     border-bottom: 1px solid var(--rule);
     display: flex; gap: 10px;
-    letter-spacing: 0.04em; text-transform: uppercase;
+    letter-spacing: 0.06em; text-transform: uppercase;
     font-size: 10px;
   }
   .sheet .sheet-head .col { flex: 1; }
@@ -194,7 +208,7 @@
   .v.uncertain { background: rgba(194,107,61,.13); color: var(--accent-2); }
 
   /* Accordion cards */
-  .cards { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .cards { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; }
   .card {
     position: relative;
     background: var(--paper);
@@ -205,7 +219,6 @@
     overflow: hidden;
   }
   .card[open] { box-shadow: var(--shadow-lift); }
-  /* Use details/summary natively for accessibility */
   .card summary {
     list-style: none;
     cursor: pointer;
@@ -222,11 +235,7 @@
     color: var(--accent);
     flex: 0 0 auto;
   }
-  .card summary .title {
-    flex: 1;
-    font-size: 16px;
-    letter-spacing: -0.005em;
-  }
+  .card summary .title { flex: 1; font-size: 16px; letter-spacing: -0.005em; }
   .card summary .caret {
     flex: 0 0 auto;
     width: 22px; height: 22px;
@@ -243,30 +252,29 @@
     font-size: 15px;
     line-height: 1.55;
     border-top: 1px solid var(--rule);
-    margin-top: 0;
   }
   .card .body p { color: var(--ink-2); margin: 14px 0 0; }
   .card .body p:first-child { margin-top: 14px; }
   .card .body .meta {
-    margin-top: 14px;
-    padding-top: 12px;
+    margin-top: 12px;
+    padding-top: 10px;
     border-top: 1px dashed var(--rule);
     color: var(--ink-3);
     font-family: "JetBrains Mono", monospace;
     font-size: 10px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
   /* Inline diagrams */
-  .warmup {
-    margin-top: 24px;
+  .warmup, .loop {
+    margin-top: 32px;
     background: #fff;
     border: 1px solid var(--rule);
     border-radius: 10px;
-    padding: 18px 16px 12px;
     box-shadow: var(--shadow-soft);
   }
+  .warmup { padding: 18px 16px 12px; }
   .warmup svg { width: 100%; height: auto; display: block; }
   .warmup .label-row {
     display: flex; justify-content: space-between;
@@ -275,46 +283,38 @@
     text-transform: uppercase;
     margin-top: 8px;
   }
-
-  .loop {
-    margin-top: 24px;
-    background: #fff;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    padding: 22px 18px;
-    box-shadow: var(--shadow-soft);
-    font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    color: var(--ink-2);
-    text-align: center;
-  }
+  .loop { padding: 26px 18px; font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-2); text-align: center; }
   .loop .step { display: inline-block; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 999px; margin: 4px; }
   .loop .arrow { color: var(--accent); margin: 0 2px; }
 
-  /* Who it's for cards */
-  .who { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+  /* Who it's for */
+  .who { display: flex; flex-direction: column; gap: 12px; margin-top: 36px; }
   .who .pcard {
     background: var(--paper);
     border: 1px solid var(--rule);
     border-radius: 12px;
-    padding: 22px 20px;
+    padding: 20px 22px;
     box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
   }
-  .who .pcard h3 { color: var(--ink); margin-bottom: 6px; }
   .who .pcard .who-tag {
     font-family: "JetBrains Mono", monospace;
-    font-size: 10px; letter-spacing: 0.07em; color: var(--accent);
+    font-size: 10px; letter-spacing: 0.09em; color: var(--accent);
     text-transform: uppercase;
-    margin-bottom: 14px;
+    flex: 0 0 84px;
   }
-  .who .pcard p { margin: 0; color: var(--ink-2); }
+  .who .pcard .desc {
+    flex: 1;
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.4;
+  }
 
-  /* FAQ — reuse accordion structure */
-  .faq { margin-top: 24px; }
-  .faq details {
-    border-top: 1px solid var(--rule);
-    padding: 0;
-  }
+  /* FAQ */
+  .faq { margin-top: 32px; }
+  .faq details { border-top: 1px solid var(--rule); padding: 0; }
   .faq details:last-of-type { border-bottom: 1px solid var(--rule); }
   .faq summary {
     list-style: none;
@@ -347,11 +347,16 @@
   }
 
   /* Final CTA */
-  .final { text-align: left; padding-block: 80px; }
-  .final h2 { font-family: "Instrument Serif", serif; font-style: italic; font-size: clamp(34px, 9vw, 48px); margin-bottom: 22px; line-height: 1.05; }
+  .final { padding-block: 100px; }
+  .final h2 {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: clamp(38px, 10vw, 56px);
+    line-height: 1.02;
+    margin-bottom: 28px;
+  }
   .final .meta { color: var(--ink-3); margin-top: 16px; font-size: 14px; }
 
-  /* Footer */
   footer {
     padding: 36px 0 56px;
     color: var(--ink-3);
@@ -362,7 +367,7 @@
   footer a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--rule); }
   footer a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-  /* Reveal-on-load: subtle stagger */
+  /* Reveal-on-load */
   .reveal { opacity: 0; transform: translateY(8px); animation: reveal .9s cubic-bezier(.2,.7,.2,1) forwards; }
   .reveal.d1 { animation-delay: .10s; }
   .reveal.d2 { animation-delay: .22s; }
@@ -371,11 +376,9 @@
   .reveal.d5 { animation-delay: .58s; }
   @keyframes reveal { to { opacity: 1; transform: none; } }
 
-  /* Reveal-on-scroll */
   .fade-in { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s ease; }
   .fade-in.in { opacity: 1; transform: none; }
 
-  /* Smooth height for details — fallback acceptable on Safari < 17 */
   details { interpolate-size: allow-keywords; }
   details::details-content {
     block-size: 0;
@@ -384,13 +387,11 @@
   }
   details[open]::details-content { block-size: auto; }
 
-  /* Selection */
   ::selection { background: var(--accent); color: var(--paper); }
 
-  /* Desktop: keep mobile feel, just centered */
   @media (min-width: 760px) {
     .wrap { max-width: 680px; }
-    section { padding-block: 96px; }
+    section { padding-block: 110px; }
   }
 </style>
 </head>
@@ -398,62 +399,53 @@
 
 <main>
 
-<!-- =================== 1. HERO =================== -->
+<!-- 1. HERO -->
 <section class="hero">
   <div class="wrap">
     <div class="mono eyebrow reveal d1">Customise · Instagram Scraper</div>
+
     <h1 class="display reveal d2">
-      Find inspirational Reels —
-      <span class="it">on autopilot.</span>
+      The Reels worth your time.
+      <span class="it">Surfaced.</span>
     </h1>
-    <p class="lede reveal d3">
-      Human-in-the-loop AI for Instagram. Autonomous agents do the watching
-      from a dedicated burner account. A real AI engineer does the tuning,
-      week after week.
+
+    <p class="sub reveal d3">
+      A burner Instagram. AI agents that watch. A real engineer that tunes.
     </p>
 
-    <div class="reveal d4" style="margin-top: 28px;">
-      <a class="btn" href="#book">Book your intro call <span class="arrow">→</span></a>
+    <div class="cta-row reveal d4">
+      <a class="btn" href="#book">Book intro call <span class="arrow">→</span></a>
     </div>
 
-    <div class="strip mono reveal d5">
-      <span>30-min call</span>
-      <span>7-day free trial</span>
-      <span>No card</span>
+    <div class="trustband reveal d5">
+      <span class="dot"></span>
+      <span class="meta">Built for <strong>10ent.in</strong> · by <strong>Agentropic</strong></span>
     </div>
   </div>
 </section>
 
 
-<!-- =================== 2. PROBLEM =================== -->
+<!-- 2. PROBLEM -->
 <section class="problem fade-in">
   <div class="wrap">
     <div class="mono seclabel"><span class="n">02</span><span class="name">The problem</span></div>
-    <h2 class="display">
-      Three things <em class="serif">you can't afford</em><br>to keep doing.
-    </h2>
+    <h2 class="display">Three things <em class="serif">you can't afford</em>.</h2>
     <ol>
       <li>Hours scrolling for hooks that mostly never come.</li>
-      <li>A “For You” feed that drifts away from your niche the moment you stop training it.</li>
-      <li>Reels you remember, then lose — because you saw them on the wrong day.</li>
+      <li>A feed that drifts away from your niche the moment you stop training it.</li>
+      <li>Reels you remember and lose, because you watched them on the wrong day.</li>
     </ol>
   </div>
 </section>
 
 
-<!-- =================== 3. WHAT YOU GET =================== -->
+<!-- 3. WHAT YOU GET -->
 <section class="fade-in">
   <div class="wrap">
     <div class="mono seclabel"><span class="n">03</span><span class="name">What you get</span></div>
-    <h2 class="display">A working Google Sheet that <em class="serif">quietly fills itself</em>.</h2>
-    <p class="lede">
-      One row per Reel. The link. The caption. The transcript. The verdict
-      — <strong>ACCEPT</strong>, <strong>REJECT</strong>, or <strong>UNCERTAIN</strong>
-      — and a one-line <em class="serif">why</em>. By the end of week one,
-      50–100 of them.
-    </p>
+    <h2 class="display">A sheet that <em class="serif">fills itself</em>.</h2>
+    <p class="one-line">ACCEPT · REJECT · UNCERTAIN — and a one-line <em class="serif">why</em>.</p>
 
-    <!-- Mock sheet -->
     <div class="sheet" aria-hidden="true">
       <div class="sheet-head">
         <div class="col">Reel</div>
@@ -490,30 +482,24 @@
 </section>
 
 
-<!-- =================== 4. HOW IT WORKS =================== -->
+<!-- 4. HOW IT WORKS -->
 <section class="fade-in">
   <div class="wrap">
     <div class="mono seclabel"><span class="n">04</span><span class="name">How it works</span></div>
     <h2 class="display">Six steps. <em class="serif">One week.</em></h2>
-    <p>
-      Tap any step to read more. Your first week — steps 02 through 06 —
-      is your <strong>7-day free trial</strong>.
-    </p>
+    <p class="one-line">Steps 02–06 are your <strong>7-day free trial</strong>. Tap any to expand.</p>
 
     <div class="cards" id="how-cards">
 
-      <details class="card" open>
+      <details class="card">
         <summary>
           <span class="num">01</span>
           <span class="title">Discovery call</span>
           <span class="caret">⌄</span>
         </summary>
         <div class="body">
-          <p>
-            A 30-minute call with our team. We learn your niche, your current
-            ad metrics, and what “a Reel worth keeping” looks like to you.
-          </p>
-          <div class="meta">Time · 30 min · Synchronous</div>
+          <p>A 30-minute call. We learn your niche, your metrics, and what <em class="serif">a Reel worth keeping</em> looks like to you.</p>
+          <div class="meta">30 min · Synchronous</div>
         </div>
       </details>
 
@@ -524,10 +510,7 @@
           <span class="caret">⌄</span>
         </summary>
         <div class="body">
-          <p>
-            Use a fresh burner Instagram account, or hand us an existing one.
-            Your main brand handle is never touched.
-          </p>
+          <p>A fresh or existing burner Instagram. Your main brand handle is never touched.</p>
           <div class="meta">Day 1 · Trial begins</div>
         </div>
       </details>
@@ -535,15 +518,11 @@
       <details class="card">
         <summary>
           <span class="num">03</span>
-          <span class="title">Share what's already worked</span>
+          <span class="title">Share what's worked</span>
           <span class="caret">⌄</span>
         </summary>
         <div class="body">
-          <p>
-            Send us links to Reels that performed for you in the past — or
-            upload the video files. This becomes the model's training data:
-            the ground-truth your agents learn from.
-          </p>
+          <p>Drop us links to past Reels that performed for you — or the video files. This is the model's training data.</p>
           <div class="meta">Day 1 · Async drop</div>
         </div>
       </details>
@@ -555,29 +534,20 @@
           <span class="caret">⌄</span>
         </summary>
         <div class="body">
-          <p>
-            Your dedicated AI engineer studies the common cues in your past
-            Reels — hook structures, formats, pacing, scripts — and tunes
-            the agents to recognise the same patterns in the wild. Evals
-            are run on a sample batch before the burner goes live.
-          </p>
-          <div class="meta">Days 1–2 · Prompt engineering + evals</div>
+          <p>Your AI engineer reads the cues — hooks, formats, pacing, scripts — and tunes the agents to find that same pattern in the wild.</p>
+          <div class="meta">Days 1–2 · Prompts + evals</div>
         </div>
       </details>
 
       <details class="card">
         <summary>
           <span class="num">05</span>
-          <span class="title">Daily scraping + daily review</span>
+          <span class="title">Daily scrape · Daily review</span>
           <span class="caret">⌄</span>
         </summary>
         <div class="body">
-          <p>
-            About 30 minutes of live scraping every day. After each run, a
-            30-minute review call to confirm we're heading the right way,
-            and to retune anything off.
-          </p>
-          <div class="meta">Days 3–9 · 30 min scrape · 30 min review</div>
+          <p>~30 min of live scraping. ~30 min review call. Retune what's off.</p>
+          <div class="meta">Days 3–9</div>
         </div>
       </details>
 
@@ -588,11 +558,7 @@
           <span class="caret">⌄</span>
         </summary>
         <div class="body">
-          <p>
-            By the end of week one: a pipeline of 50–100 Reels per week the
-            model believes will resonate with your audience — already in
-            your sheet, ready to use.
-          </p>
+          <p>50–100 Reels per week the model thinks will resonate. In your sheet. Ready to use.</p>
           <div class="meta">Day 7 · Pipeline live</div>
         </div>
       </details>
@@ -602,21 +568,14 @@
 </section>
 
 
-<!-- =================== 5. BEHAVES LIKE A HUMAN =================== -->
+<!-- 5. BEHAVES LIKE A HUMAN -->
 <section class="fade-in">
   <div class="wrap">
     <div class="mono seclabel"><span class="n">05</span><span class="name">Behaves like a human</span></div>
     <h2 class="display">The burner <em class="serif">warms up</em> to you.</h2>
-    <p class="lede">
-      Realistic watch-times. Realistic scroll cadence. No bot signals.
-      Every Reel the burner watches teaches Instagram's feed a little
-      more about your niche — by the end of week two, the “For You”
-      is reshaped around the audience you actually care about.
-    </p>
-    <p>Your main account is never used. Ever.</p>
+    <p class="statement">Realistic watch-times. Real scroll cadence. By day 14, the “For You” is reshaped around your niche.</p>
 
     <div class="warmup" aria-hidden="true">
-      <!-- Warm-up curve: niche-relevance over days -->
       <svg viewBox="0 0 320 110" preserveAspectRatio="none">
         <defs>
           <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1">
@@ -624,21 +583,14 @@
             <stop offset="1" stop-color="#9A2A2A" stop-opacity="0"/>
           </linearGradient>
         </defs>
-        <!-- baseline -->
         <line x1="0" y1="95" x2="320" y2="95" stroke="#D4C8B0" stroke-width="1"/>
-        <!-- ticks -->
         <line x1="0"   y1="93" x2="0"   y2="97" stroke="#8B7E68"/>
         <line x1="80"  y1="93" x2="80"  y2="97" stroke="#8B7E68"/>
         <line x1="160" y1="93" x2="160" y2="97" stroke="#8B7E68"/>
         <line x1="240" y1="93" x2="240" y2="97" stroke="#8B7E68"/>
         <line x1="320" y1="93" x2="320" y2="97" stroke="#8B7E68"/>
-        <!-- area -->
-        <path d="M0,90 C40,86 70,75 110,55 C150,38 180,28 220,22 C260,18 290,16 320,15 L320,95 L0,95 Z"
-              fill="url(#fade)"/>
-        <!-- curve -->
-        <path d="M0,90 C40,86 70,75 110,55 C150,38 180,28 220,22 C260,18 290,16 320,15"
-              fill="none" stroke="#9A2A2A" stroke-width="2" stroke-linecap="round"/>
-        <!-- end dot -->
+        <path d="M0,90 C40,86 70,75 110,55 C150,38 180,28 220,22 C260,18 290,16 320,15 L320,95 L0,95 Z" fill="url(#fade)"/>
+        <path d="M0,90 C40,86 70,75 110,55 C150,38 180,28 220,22 C260,18 290,16 320,15" fill="none" stroke="#9A2A2A" stroke-width="2" stroke-linecap="round"/>
         <circle cx="320" cy="15" r="3.5" fill="#9A2A2A"/>
       </svg>
       <div class="label-row">
@@ -649,26 +601,12 @@
 </section>
 
 
-<!-- =================== 6. TRAINED ON YOU =================== -->
+<!-- 6. TRAINED ON YOU -->
 <section class="fade-in">
   <div class="wrap">
     <div class="mono seclabel"><span class="n">06</span><span class="name">Trained on you — and it keeps learning</span></div>
     <h2 class="display">Your taste becomes <em class="serif">its taste</em>.</h2>
-
-    <h3 style="margin-top: 24px;">Initial — your past work is the training set</h3>
-    <p>
-      Your past ads, your top-performing Reels, and your target metric
-      become the model's ACCEPT criteria. Your engineer reads them with
-      you and turns the patterns into a system prompt.
-    </p>
-
-    <h3 style="margin-top: 22px;">Ongoing — every UNCERTAIN comes back to you</h3>
-    <p>
-      For every Reel the model isn't sure about, a one-click dropdown in
-      your sheet — <strong>ACCEPT</strong>, <strong>REJECT</strong>, or
-      <strong>UNCERTAIN</strong>. Each click feeds the next prompt update,
-      so the same mistake never repeats. The system gets sharper every week.
-    </p>
+    <p class="statement">Every <span style="color:var(--accent-2)">UNCERTAIN</span> Reel comes back as a one-click dropdown. Each click updates the prompt — so the same miss never repeats.</p>
 
     <div class="loop" aria-hidden="true">
       <span class="step">Scan</span>
@@ -685,26 +623,18 @@
 </section>
 
 
-<!-- =================== 7. AI ENGINEER =================== -->
+<!-- 7. AI ENGINEER -->
 <section class="fade-in">
   <div class="wrap">
     <div class="mono seclabel"><span class="n">07</span><span class="name">Your dedicated AI engineer</span></div>
-    <h2 class="display">Not a rep. <em class="serif">A working engineer.</em></h2>
-    <p class="lede">
-      You're assigned a real prompt engineer. They write your system prompt,
-      run evals against a sample batch before going live, watch the verdicts
-      for drift, retune weekly, and surface the edge cases.
-    </p>
-    <p>
-      They're on WhatsApp throughout. We believe today's AI still needs an
-      expert in the loop. Until that changes, ours stays there — so your
-      pipeline doesn't degrade quietly in the background.
-    </p>
+    <h2 class="display">Not a rep. <em class="serif">An engineer.</em></h2>
+    <p class="statement">Writes your prompts. Runs your evals. Watches for drift. On WhatsApp.</p>
+    <p class="one-line">AI still needs an expert in the loop. Ours stays there — so your pipeline doesn't degrade quietly.</p>
   </div>
 </section>
 
 
-<!-- =================== 8. WHO IT'S FOR =================== -->
+<!-- 8. WHO IT'S FOR -->
 <section class="fade-in">
   <div class="wrap">
     <div class="mono seclabel"><span class="n">08</span><span class="name">Who it's for</span></div>
@@ -712,34 +642,22 @@
     <div class="who">
       <div class="pcard">
         <div class="who-tag mono">Brands</div>
-        <h3>Founders running paid social</h3>
-        <p>
-          Launching short-form, tired of guessing the next hook,
-          ready to replace gut-feel with a system.
-        </p>
+        <div class="desc">Tired of guessing the next hook.</div>
       </div>
       <div class="pcard">
         <div class="who-tag mono">Agencies</div>
-        <h3>Creator + brand pipelines</h3>
-        <p>
-          You need a sharper signal than “what's trending.” Run the
-          scanner per client, ship faster briefs.
-        </p>
+        <div class="desc">Sharper signal than "what's trending".</div>
       </div>
       <div class="pcard">
-        <div class="who-tag mono">In-house teams</div>
-        <h3>Marketing teams replacing manual research</h3>
-        <p>
-          Move the team out of the scroll and into the script.
-          The system compounds; the team doesn't burn out.
-        </p>
+        <div class="who-tag mono">In-house</div>
+        <div class="desc">Replace manual research with a system that compounds.</div>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- =================== 9. FAQ =================== -->
+<!-- 9. FAQ -->
 <section class="fade-in">
   <div class="wrap">
     <div class="mono seclabel"><span class="n">09</span><span class="name">FAQ</span></div>
@@ -747,71 +665,43 @@
 
     <div class="faq">
       <details>
-        <summary>Is this software or a service?</summary>
-        <div class="answer">
-          Both. A managed AI scanner with a dedicated engineer behind it.
-          You aren't logging into a dashboard alone.
-        </div>
+        <summary>Software or service?</summary>
+        <div class="answer">Both. A managed AI scanner with a dedicated engineer behind it.</div>
       </details>
-
       <details>
         <summary>What does the trial cost?</summary>
-        <div class="answer">
-          Steps 02–06 of How It Works are free for seven days. No card on
-          file. After the week, we agree on a custom monthly retainer —
-          or you walk away with the sheet.
-        </div>
+        <div class="answer">Steps 02–06 are free for 7 days. No card. After that, a monthly retainer — or walk away with the sheet.</div>
       </details>
-
       <details>
         <summary>Why not just use ChatGPT or Claude on my own?</summary>
-        <div class="answer">
-          Frontier models without guardrails, evals, and brand-voice tuning
-          drift fast. The wrapper around the model is the work. That
-          wrapper is what we build and maintain.
-        </div>
+        <div class="answer">Without guardrails, evals, and brand-voice tuning, models drift fast. The wrapper around the model is the work.</div>
       </details>
-
       <details>
-        <summary>Will my main Instagram account get flagged?</summary>
-        <div class="answer">
-          No — it's never used. Scraping happens from a dedicated burner
-          account that we set up with you on day one.
-        </div>
+        <summary>Will my main IG account get flagged?</summary>
+        <div class="answer">No — it's never used. Scraping runs on a dedicated burner.</div>
       </details>
-
       <details>
-        <summary>What happens if the model gets a Reel wrong?</summary>
-        <div class="answer">
-          Tag it in your sheet's dropdown. The correction goes straight
-          back into the system prompt, and your engineer rolls it into
-          the next weekly tune. The same miss won't repeat.
-        </div>
+        <summary>What if the model gets a Reel wrong?</summary>
+        <div class="answer">Tag it in the dropdown. Correction goes back into the prompt. Same miss won't repeat.</div>
       </details>
-
       <details>
         <summary>Where does my data live?</summary>
-        <div class="answer">
-          In your own Google Drive + Sheets. We don't host or sell it.
-        </div>
+        <div class="answer">In your own Google Drive + Sheets. We don't host or sell it.</div>
       </details>
     </div>
   </div>
 </section>
 
 
-<!-- =================== 10. FINAL CTA =================== -->
+<!-- 10. FINAL CTA -->
 <section class="final fade-in" id="book">
   <div class="wrap">
     <div class="mono seclabel"><span class="n">10</span><span class="name">Start</span></div>
-    <h2>Book your intro call.<br>We'll reply within a working day.</h2>
-    <a class="btn" href="https://calendly.com/agentropic/intro-call"
-       target="_blank" rel="noopener">
+    <h2>Book your intro&nbsp;call.</h2>
+    <a class="btn" href="https://calendly.com/agentropic/intro-call" target="_blank" rel="noopener">
       Book intro call <span class="arrow">→</span>
     </a>
-    <p class="meta">
-      Or email <a href="mailto:mayank@agentropic.ai" style="color:var(--ink); border-bottom:1px solid var(--rule);">mayank@agentropic.ai</a>.
-    </p>
+    <p class="meta">Or email <a href="mailto:mayank@agentropic.ai" style="color:var(--ink); border-bottom:1px solid var(--rule);">mayank@agentropic.ai</a>. We reply within a working day.</p>
   </div>
 </section>
 
@@ -827,7 +717,6 @@
 </footer>
 
 <script>
-  // Reveal-on-scroll
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (e.isIntersecting) {
@@ -837,9 +726,6 @@
     }
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
-
-  // Optional: keep the open-card lift consistent on touch (Safari momentary tap state)
-  // No-op — relying on details/summary defaults for accessibility & state.
 </script>
 
 </body>
