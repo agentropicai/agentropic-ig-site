@@ -306,50 +306,21 @@
     text-transform: uppercase;
   }
 
-  /* Inline diagrams */
-  .warmup, .loop {
+  /* Engineer section image */
+  .engineer-image {
     margin-top: 32px;
-    background: #fff;
-    border: 1px solid var(--rule);
-    border-radius: 10px;
-    box-shadow: var(--shadow-soft);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lift);
+    border: 1px solid rgba(28,24,18,.08);
+    aspect-ratio: 16/10;
+    background: var(--paper-2);
   }
-  .warmup { padding: 18px 16px 12px; }
-  .warmup svg { width: 100%; height: auto; display: block; }
-  .warmup .label-row {
-    display: flex; justify-content: space-between;
-    font-family: "JetBrains Mono", monospace;
-    font-size: 10px; letter-spacing: 0.06em; color: var(--ink-3);
-    text-transform: uppercase;
-    margin-top: 8px;
-  }
-  .loop { padding: 26px 18px; font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-2); text-align: center; }
-  .loop .step { display: inline-block; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 999px; margin: 4px; }
-  .loop .arrow { color: var(--accent); margin: 0 2px; }
-
-  /* Who it's for */
-  .who { display: flex; flex-direction: column; gap: 12px; margin-top: 36px; }
-  .who .pcard {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    padding: 20px 22px;
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-  }
-  .who .pcard .who-tag {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 10px; letter-spacing: 0.09em; color: var(--accent);
-    text-transform: uppercase;
-    flex: 0 0 84px;
-  }
-  .who .pcard .desc {
-    flex: 1;
-    color: var(--ink);
-    font-size: 16px;
-    line-height: 1.4;
+  .engineer-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
   }
 
   /* FAQ */
@@ -656,90 +627,63 @@
 </section>
 
 
-<!-- 5. BEHAVES LIKE A HUMAN -->
+<!-- 5. AI ENGINEER -->
 <section class="fade-in">
   <div class="wrap">
-    <div class="mono seclabel"><span class="n">05</span><span class="name">Behaves like a human</span></div>
-    <h2 class="display">The burner <em class="serif">warms up</em> to you.</h2>
-    <p class="statement">Realistic watch-times. Real scroll cadence. By day 14, the “For You” is reshaped around your niche.</p>
-
-    <div class="warmup" aria-hidden="true">
-      <svg viewBox="0 0 320 110" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="#9A2A2A" stop-opacity=".22"/>
-            <stop offset="1" stop-color="#9A2A2A" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-        <line x1="0" y1="95" x2="320" y2="95" stroke="#D4C8B0" stroke-width="1"/>
-        <line x1="0"   y1="93" x2="0"   y2="97" stroke="#8B7E68"/>
-        <line x1="80"  y1="93" x2="80"  y2="97" stroke="#8B7E68"/>
-        <line x1="160" y1="93" x2="160" y2="97" stroke="#8B7E68"/>
-        <line x1="240" y1="93" x2="240" y2="97" stroke="#8B7E68"/>
-        <line x1="320" y1="93" x2="320" y2="97" stroke="#8B7E68"/>
-        <path d="M0,90 C40,86 70,75 110,55 C150,38 180,28 220,22 C260,18 290,16 320,15 L320,95 L0,95 Z" fill="url(#fade)"/>
-        <path d="M0,90 C40,86 70,75 110,55 C150,38 180,28 220,22 C260,18 290,16 320,15" fill="none" stroke="#9A2A2A" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="320" cy="15" r="3.5" fill="#9A2A2A"/>
-      </svg>
-      <div class="label-row">
-        <span>Day 1</span><span>Day 4</span><span>Day 7</span><span>Day 10</span><span>Day 14</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- 6. TRAINED ON YOU -->
-<section class="fade-in">
-  <div class="wrap">
-    <div class="mono seclabel"><span class="n">06</span><span class="name">Trained on you — and it keeps learning</span></div>
-    <h2 class="display">Your taste becomes <em class="serif">its taste</em>.</h2>
-    <p class="statement">Every <span style="color:var(--accent-2)">UNCERTAIN</span> Reel comes back as a one-click dropdown. Each click updates the prompt — so the same miss never repeats.</p>
-
-    <div class="loop" aria-hidden="true">
-      <span class="step">Scan</span>
-      <span class="arrow">→</span>
-      <span class="step">Uncertain</span>
-      <span class="arrow">→</span>
-      <span class="step">You decide</span>
-      <span class="arrow">→</span>
-      <span class="step">Prompt evolves</span>
-      <span class="arrow">→</span>
-      <span class="step">Sharper scans</span>
-    </div>
-  </div>
-</section>
-
-
-<!-- 7. AI ENGINEER -->
-<section class="fade-in">
-  <div class="wrap">
-    <div class="mono seclabel"><span class="n">07</span><span class="name">Your dedicated AI engineer</span></div>
+    <div class="mono seclabel"><span class="n">05</span><span class="name">Your dedicated AI engineer</span></div>
     <h2 class="display">Not a rep. <em class="serif">An engineer.</em></h2>
     <p class="statement">Writes your prompts. Runs your evals. Watches for drift. On WhatsApp.</p>
     <p class="one-line">AI still needs an expert in the loop. Ours stays there — so your pipeline doesn't degrade quietly.</p>
+
+    <div class="engineer-image">
+      <img src="image/engineer-placeholder.svg" alt="" loading="lazy" />
+    </div>
   </div>
 </section>
 
 
-<!-- 8. WHO IT'S FOR -->
+<!-- 6. WHO IT'S FOR -->
 <section class="fade-in">
   <div class="wrap">
-    <div class="mono seclabel"><span class="n">08</span><span class="name">Who it's for</span></div>
+    <div class="mono seclabel"><span class="n">06</span><span class="name">Who it's for</span></div>
     <h2 class="display">Three kinds of buyer.</h2>
-    <div class="who">
-      <div class="pcard">
-        <div class="who-tag mono">Brands</div>
-        <div class="desc">Tired of guessing the next hook.</div>
-      </div>
-      <div class="pcard">
-        <div class="who-tag mono">Agencies</div>
-        <div class="desc">Sharper signal than "what's trending".</div>
-      </div>
-      <div class="pcard">
-        <div class="who-tag mono">In-house</div>
-        <div class="desc">Replace manual research with a system that compounds.</div>
-      </div>
+    <p class="one-line">Tap any to expand.</p>
+
+    <div class="cards">
+
+      <details class="card">
+        <summary>
+          <span class="num">A</span>
+          <span class="title">Brands</span>
+          <span class="caret">⌄</span>
+        </summary>
+        <div class="body">
+          <p>Power both your <em class="serif">organic</em> reach <em class="serif">and</em> your paid ads. Every winning Reel format we surface in your niche is one your team can adapt — a hook for a new ad, a creative for a launch, a content series for the page.</p>
+        </div>
+      </details>
+
+      <details class="card">
+        <summary>
+          <span class="num">B</span>
+          <span class="title">Agencies</span>
+          <span class="caret">⌄</span>
+        </summary>
+        <div class="body">
+          <p>One burner per client. Each scanner is tuned to that client's brand voice and target metric — surfacing on-niche Reels for every account on your roster, without your team scrolling.</p>
+        </div>
+      </details>
+
+      <details class="card">
+        <summary>
+          <span class="num">C</span>
+          <span class="title">Influencers</span>
+          <span class="caret">⌄</span>
+        </summary>
+        <div class="body">
+          <p>A content research intern who never misses a deadline. The scanner finds what's resonating in your space, so your post pipeline never goes dry and your weekly targets never slip.</p>
+        </div>
+      </details>
+
     </div>
   </div>
 </section>
@@ -748,7 +692,7 @@
 <!-- 9. FAQ -->
 <section class="fade-in">
   <div class="wrap">
-    <div class="mono seclabel"><span class="n">09</span><span class="name">FAQ</span></div>
+    <div class="mono seclabel"><span class="n">07</span><span class="name">FAQ</span></div>
     <h2 class="display">Common questions.</h2>
 
     <div class="faq">
@@ -784,7 +728,7 @@
 <!-- 10. FINAL CTA -->
 <section class="final fade-in" id="book">
   <div class="wrap">
-    <div class="mono seclabel"><span class="n">10</span><span class="name">Start</span></div>
+    <div class="mono seclabel"><span class="n">08</span><span class="name">Start</span></div>
     <h2>Book your intro&nbsp;call.</h2>
     <a class="btn" href="https://calendly.com/agentropic/intro-call" target="_blank" rel="noopener">
       Book intro call <span class="arrow">→</span>
