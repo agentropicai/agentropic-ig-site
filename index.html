@@ -75,16 +75,34 @@
   em.serif { font-family: "Instrument Serif", serif; font-style: italic; font-size: 1.08em; color: var(--ink); }
 
   /* Hero */
-  .hero { padding-block: 76px 60px; border-top: none; }
+  .hero { padding-block: 56px 60px; border-top: none; }
   .hero h1 .it { font-style: italic; }
   .hero .sub {
     margin-top: 20px;
     font-size: 18px;
     color: var(--ink-2);
     line-height: 1.45;
-    max-width: 30ch;
+    max-width: 40ch;
   }
-  .hero .cta-row { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero .cta-row { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Hero video */
+  .hero-video {
+    margin: 28px 0 32px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lift);
+    background: #0a0807;
+    aspect-ratio: 16/9;
+    position: relative;
+    border: 1px solid rgba(28,24,18,.08);
+  }
+  .hero-video video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
   .hero .trustband {
     margin-top: 42px;
     padding-top: 22px;
@@ -404,18 +422,25 @@
   <div class="wrap">
     <div class="mono eyebrow reveal d1">Customise · Instagram Scraper</div>
 
-    <h1 class="display reveal d2">
+    <div class="hero-video reveal d2">
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="video/hero-poster.jpg" aria-hidden="true">
+        <source src="video/hero.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <h1 class="display reveal d3">
       Find inspirational Reels —
       <span class="it">on autopilot.</span>
     </h1>
 
-    <p class="sub reveal d3" style="max-width: 40ch;">
+    <p class="sub reveal d4">
       Human-in-the-loop AI for Instagram. Autonomous agents do the watching
       from a dedicated burner account. A real AI engineer does the tuning,
       week after week.
     </p>
 
-    <div class="cta-row reveal d4">
+    <div class="cta-row reveal d5">
       <a class="btn" href="#book">Book intro call <span class="arrow">→</span></a>
     </div>
 
