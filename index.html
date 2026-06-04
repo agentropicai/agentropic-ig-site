@@ -314,21 +314,49 @@
     text-transform: uppercase;
   }
 
-  /* Engineer section image */
-  .engineer-image {
+  /* Engineer section — byline card */
+  .engineer-byline {
     margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
     border-radius: 14px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lift);
-    border: 1px solid rgba(28,24,18,.08);
-    aspect-ratio: 16/10;
-    background: var(--paper-2);
+    box-shadow: var(--shadow-soft);
   }
-  .engineer-image img {
+  .engineer-byline .photo {
+    flex: 0 0 72px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--paper-2);
+    box-shadow: 0 0 0 1px var(--rule), 0 0 0 4px var(--paper);
+  }
+  .engineer-byline .photo img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
+  }
+  .engineer-byline .who { min-width: 0; }
+  .engineer-byline .name {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+  .engineer-byline .role {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
   }
 
   /* FAQ */
@@ -570,8 +598,12 @@
     <p class="statement">Writes your prompts. Runs your evals. Watches for drift. On WhatsApp.</p>
     <p class="one-line">AI still needs an expert in the loop. Ours stays there — so your pipeline doesn't degrade quietly.</p>
 
-    <div class="engineer-image">
-      <img src="image/engineer.jpg" alt="" loading="lazy" />
+    <div class="engineer-byline">
+      <div class="photo"><img src="image/mayank.jpg" alt="Mayank Mundhra" /></div>
+      <div class="who">
+        <p class="name">Mayank Mundhra</p>
+        <p class="role">Founder · AI engineer · Agentropic</p>
+      </div>
     </div>
   </div>
 </section>
