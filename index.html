@@ -255,6 +255,72 @@
     border: 0;
   }
 
+  /* §4 step cards — horizontal scroll-snap under the master animation */
+  .step-scroll {
+    margin: 22px -24px 8px;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    padding: 8px 24px 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule) transparent;
+  }
+  .step-scroll::-webkit-scrollbar { height: 5px; }
+  .step-scroll::-webkit-scrollbar-track { background: transparent; }
+  .step-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
+  .step-card {
+    flex: 0 0 268px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 18px 18px 16px;
+    box-shadow: var(--shadow-soft);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 200px;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .step-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+  .step-card .step-num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .step-card .step-title {
+    font-family: "Instrument Serif", "Times New Roman", serif;
+    font-style: italic;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .step-card .step-body {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 0;
+    flex: 1;
+  }
+  .step-card .step-meta {
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--rule);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+  }
+
   /* Accordion cards */
   .cards { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; }
   .card {
@@ -590,6 +656,52 @@
       <iframe src="animations/preview-master.html?embed=1"
               title="How it works — single-pipeline animation"
               loading="lazy"></iframe>
+    </div>
+
+    <div class="step-scroll" aria-label="Six steps in detail">
+
+      <article class="step-card">
+        <div class="step-num">01</div>
+        <h3 class="step-title">Discovery call</h3>
+        <p class="step-body">A 30-minute call. We learn your niche, your metrics, and what <em class="serif">a Reel worth keeping</em> looks like to you.</p>
+        <div class="step-meta">30 min · Synchronous</div>
+      </article>
+
+      <article class="step-card">
+        <div class="step-num">02</div>
+        <h3 class="step-title">Set up the burner</h3>
+        <p class="step-body">A fresh or existing burner Instagram. Your main brand handle is never touched.</p>
+        <div class="step-meta">Day 1 · Trial begins</div>
+      </article>
+
+      <article class="step-card">
+        <div class="step-num">03</div>
+        <h3 class="step-title">Share what's worked</h3>
+        <p class="step-body">Drop us links to past Reels that performed for you — or the video files. This is the model's training data.</p>
+        <div class="step-meta">Day 1 · Async drop</div>
+      </article>
+
+      <article class="step-card">
+        <div class="step-num">04</div>
+        <h3 class="step-title">Engineer tunes the model</h3>
+        <p class="step-body">Your AI engineer reads the cues — hooks, formats, pacing, scripts — and tunes the agents to find that same pattern in the wild.</p>
+        <div class="step-meta">Days 1–2 · Prompts + evals</div>
+      </article>
+
+      <article class="step-card">
+        <div class="step-num">05</div>
+        <h3 class="step-title">Daily scrape · Daily review</h3>
+        <p class="step-body">~30 min of live scraping. ~30 min review call. Retune what's off.</p>
+        <div class="step-meta">Days 3–9</div>
+      </article>
+
+      <article class="step-card">
+        <div class="step-num">06</div>
+        <h3 class="step-title">Week-1 deliverable</h3>
+        <p class="step-body">50–100 Reels per week the model thinks will resonate. In your sheet. Ready to use.</p>
+        <div class="step-meta">Day 7 · Pipeline live</div>
+      </article>
+
     </div>
 
     <p class="one-line" style="margin-top: 22px;">
