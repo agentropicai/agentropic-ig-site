@@ -237,6 +237,24 @@
   .v.reject    { background: rgba(154,42,42,.10);  color: var(--accent); }
   .v.uncertain { background: rgba(194,107,61,.13); color: var(--accent-2); }
 
+  /* §4 master animation embed (replaces the old accordion) */
+  .how-master {
+    margin-top: 28px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lift);
+    border: 1px solid rgba(28,24,18,.08);
+    aspect-ratio: 3 / 2;
+    background: var(--paper-2);
+    position: relative;
+  }
+  .how-master iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+  }
+
   /* Accordion cards */
   .cards { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; }
   .card {
@@ -530,83 +548,16 @@
   <div class="wrap">
     <div class="mono seclabel"><span class="n">04</span><span class="name">How it works</span></div>
     <h2 class="display">Six steps. <em class="serif">One week.</em></h2>
-    <p class="one-line">Steps 02–06 are your <strong>7-day free trial</strong>. Tap any to expand.</p>
 
-    <div class="cards" id="how-cards">
-
-      <details class="card">
-        <summary>
-          <span class="num">01</span>
-          <span class="title">Discovery call</span>
-          <span class="caret">⌄</span>
-        </summary>
-        <div class="body">
-          <p>A 30-minute call. We learn your niche, your metrics, and what <em class="serif">a Reel worth keeping</em> looks like to you.</p>
-          <div class="meta">30 min · Synchronous</div>
-        </div>
-      </details>
-
-      <details class="card">
-        <summary>
-          <span class="num">02</span>
-          <span class="title">Set up the burner</span>
-          <span class="caret">⌄</span>
-        </summary>
-        <div class="body">
-          <p>A fresh or existing burner Instagram. Your main brand handle is never touched.</p>
-          <div class="meta">Day 1 · Trial begins</div>
-        </div>
-      </details>
-
-      <details class="card">
-        <summary>
-          <span class="num">03</span>
-          <span class="title">Share what's worked</span>
-          <span class="caret">⌄</span>
-        </summary>
-        <div class="body">
-          <p>Drop us links to past Reels that performed for you — or the video files. This is the model's training data.</p>
-          <div class="meta">Day 1 · Async drop</div>
-        </div>
-      </details>
-
-      <details class="card">
-        <summary>
-          <span class="num">04</span>
-          <span class="title">Engineer tunes the model</span>
-          <span class="caret">⌄</span>
-        </summary>
-        <div class="body">
-          <p>Your AI engineer reads the cues — hooks, formats, pacing, scripts — and tunes the agents to find that same pattern in the wild.</p>
-          <div class="meta">Days 1–2 · Prompts + evals</div>
-        </div>
-      </details>
-
-      <details class="card">
-        <summary>
-          <span class="num">05</span>
-          <span class="title">Daily scrape · Daily review</span>
-          <span class="caret">⌄</span>
-        </summary>
-        <div class="body">
-          <p>~30 min of live scraping. ~30 min review call. Retune what's off.</p>
-          <div class="meta">Days 3–9</div>
-        </div>
-      </details>
-
-      <details class="card">
-        <summary>
-          <span class="num">06</span>
-          <span class="title">Week-1 deliverable</span>
-          <span class="caret">⌄</span>
-        </summary>
-        <div class="body">
-          <p>50–100 Reels per week the model thinks will resonate. In your sheet. Ready to use.</p>
-          <div class="meta">Day 7 · Pipeline live</div>
-        </div>
-      </details>
-
+    <div class="how-master">
+      <iframe src="animations/preview-master.html?embed=1"
+              title="How it works — single-pipeline animation"
+              loading="lazy"></iframe>
     </div>
+
+    <p class="one-line" style="margin-top: 22px;">
+      Steps 02–06 are your <strong>7-day free trial</strong>.
+    </p>
   </div>
 </section>
 
