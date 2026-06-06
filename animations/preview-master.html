@@ -1226,6 +1226,25 @@
       var svg = document.querySelector('svg.scene');
       if (!counter) return;
       var prevReel = -1, prevEval = '';
+      // Stage boundaries (seconds into the 20s loop) = the crossfade midpoints of
+      // the stage labels. Used to tell the PARENT page which step is active so the
+      // §4 step cards can auto-scroll + highlight in sync with this animation.
+      // Read off this same clock (svg.getCurrentTime) → cards can never drift.
+      var STAGE_BOUNDS = [3.1, 6.1, 9.1, 12.1, 15.1];
+      function stageFor(t) {
+        for (var k = 0; k < STAGE_BOUNDS.length; k++) { if (t < STAGE_BOUNDS[k]) return k; }
+        return 5;
+      }
+      var prevStage = -1;
+      function emitStage(st) {
+        if (st === prevStage) return;
+        prevStage = st;
+        try {
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage({ type: 'igm:stage', stage: st, loop: 20 }, '*');
+          }
+        } catch (e) {}
+      }
       function tick() {
         var elapsed;
         if (svg && typeof svg.getCurrentTime === 'function') {
@@ -1233,6 +1252,7 @@
         } else {
           elapsed = (performance.now() / 1000) % 20;
         }
+        emitStage(stageFor(elapsed));
         // Stage 06 window: 15..18s — counter sweeps 12 → 87
         if (elapsed >= 15 && elapsed <= 18) {
           var u = (elapsed - 15) / 3;

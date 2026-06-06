@@ -320,6 +320,25 @@
     color: var(--ink-3);
     text-transform: uppercase;
   }
+  /* Active-step highlight — driven by the §4 master animation via postMessage.
+     .is-synced is added by JS only when sync is live (animation present, not
+     reduced-motion). Without it, cards render exactly as before. */
+  .step-scroll.is-synced .step-card {
+    opacity: .5;
+    transition: opacity .45s ease, transform .25s ease,
+                box-shadow .25s ease, border-color .35s ease;
+  }
+  .step-scroll.is-synced .step-card.is-active {
+    opacity: 1;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), var(--shadow-lift);
+    transform: translateY(-2px);
+  }
+  .step-scroll.is-synced .step-card.is-active .step-num { color: var(--accent); }
+  .step-scroll.is-synced .step-card.is-active .step-title { color: var(--accent); }
+  @media (prefers-reduced-motion: reduce) {
+    .step-scroll.is-synced .step-card { opacity: 1; transition: none; transform: none; }
+  }
 
   /* Accordion cards */
   .cards { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; }
@@ -653,7 +672,7 @@
     <h2 class="display">Six steps. <em class="serif">One week.</em></h2>
 
     <div class="how-master">
-      <iframe src="animations/preview-master.html?embed=1"
+      <iframe src="animations/preview-master.html?embed=1&v=3"
               title="How it works — single-pipeline animation"
               loading="lazy"></iframe>
     </div>
@@ -847,6 +866,74 @@
     }
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
   document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+</script>
+
+<script>
+  // §4 — sync the step cards to the master animation.
+  // The iframe posts {type:'igm:stage', stage} on each stage change (read from
+  // the SVG's own clock, so cards track the real playhead, never a drifting
+  // timer). We highlight the matching card and scroll it to the strip's left
+  // edge — scoped to the horizontal container so the page never jumps vertically.
+  // Manual swipes pause auto-scroll for 6s; reduced-motion disables the whole thing.
+  (function () {
+    var scroller = document.querySelector('.step-scroll');
+    if (!scroller) return;
+    var cards = Array.prototype.slice.call(scroller.querySelectorAll('.step-card'));
+    if (!cards.length) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var iframe = document.querySelector('.how-master iframe');
+    scroller.classList.add('is-synced');
+
+    var current = -1;
+    var visible = false;     // §4 step-strip on screen?
+    var manualUntil = 0;     // pause auto-scroll until this timestamp (ms)
+
+    ['pointerdown', 'touchstart', 'wheel'].forEach(function (ev) {
+      scroller.addEventListener(ev, function () {
+        manualUntil = performance.now() + 6000;
+      }, { passive: true });
+    });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting;
+      }, { threshold: 0.15 }).observe(scroller);
+    } else {
+      visible = true;
+    }
+
+    function scrollToCard(i, instant) {
+      var card = cards[i];
+      if (!card) return;
+      var delta = (card.getBoundingClientRect().left
+                   - scroller.getBoundingClientRect().left) - 16; // 16px left inset
+      scroller.scrollBy({ left: delta, behavior: instant ? 'auto' : 'smooth' });
+    }
+
+    function setStage(i) {
+      for (var k = 0; k < cards.length; k++) {
+        cards[k].classList.toggle('is-active', k === i);
+      }
+      if (visible && performance.now() >= manualUntil) {
+        // Loop seam (… → first card): snap instantly so it reads as a clean
+        // restart, not a multi-card rewind sweep.
+        var seam = (current > i && i === 0);
+        scrollToCard(i, seam);
+      }
+      current = i;
+    }
+
+    window.addEventListener('message', function (e) {
+      if (iframe && e.source && e.source !== iframe.contentWindow) return;
+      var d = e.data;
+      if (!d || d.type !== 'igm:stage') return;
+      var i = d.stage | 0;
+      if (i < 0) i = 0;
+      if (i > cards.length - 1) i = cards.length - 1;
+      if (i !== current) setStage(i);
+    });
+  })();
 </script>
 
 </body>
