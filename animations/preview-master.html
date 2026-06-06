@@ -6,20 +6,20 @@
 <title>Preview · Master — How It Works</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Preload Instrument Serif italic so it renders rather than Times fallback -->
-<link rel="preload" as="font" type="font/woff2" crossorigin
-      href="https://fonts.gstatic.com/s/instrumentserif/v5/jizHRFtNs2ka5fXjeivQ4LroWlx-6zAjjH7M.woff2">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper:    #F2EDE3;
+    --paper:    #FBF7EC;
     --paper-2:  #EAE3D4;
     --ink:      #1C1812;
     --ink-2:    #524837;
     --ink-3:    #8B7E68;
-    --accent:   #9A2A2A;
-    --accent-2: #C2532A;
-    --mustard:  #D4A85A;
+    --accent:   #15803D;
+    --accent-2: #166534;
+    --mustard:  #4ADE80;
+    /* Reconciled to agentropic.ai: forest-green brand, bright-green pop.
+       Semantic verdict pills keep their own colours (accept #4F6B3A,
+       reject #B23A2E, review #C2532A) — those are status, not brand. */
     --rule:     #D4C8B0;
     --green:    #4F6B3A;
 
@@ -45,7 +45,7 @@
     min-height: 100vh;
     background: var(--paper);
     color: var(--ink);
-    font-family: "Schibsted Grotesk", system-ui, -apple-system, sans-serif;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
     font-size: 17px;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
@@ -140,9 +140,10 @@
      Default `fill` is now cream so text reads on ink without per-element
      overrides. Per-element fills still win where set explicitly. */
   .t-serif {
-    font-family: "Instrument Serif", "Times New Roman", serif;
-    font-style: italic;
-    font-weight: 400;
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.03em;
     fill: #FBF7EE;
   }
   .t-mono {
@@ -151,10 +152,10 @@
     letter-spacing: 1.4px;
     fill: #B5A88C;
   }
-  .t-mono-accent { fill: #D4A85A; }   /* mustard, pops on ink */
+  .t-mono-accent { fill: #4ADE80; }   /* mustard, pops on ink */
   .t-mono-red    { fill: #C8553A; }   /* warmed accent red for tiny mono */
   .t-label {
-    font-family: "Schibsted Grotesk", system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
     font-weight: 600;
     letter-spacing: 1.6px;
     fill: #FBF7EE;
@@ -352,7 +353,7 @@
           calcMode="spline"/>
         <!-- Ripples (drawn behind the badge so they read as outgoing) -->
         <circle cx="540" cy="300" r="92"
-                fill="none" stroke="#9A2A2A" stroke-width="4" opacity="0">
+                fill="none" stroke="#15803D" stroke-width="4" opacity="0">
           <animate attributeName="r"
             values="92;92;170;230;230"
             keyTimes="0;0.02;0.10;0.14;1"
@@ -367,7 +368,7 @@
             dur="20s" repeatCount="indefinite"/>
         </circle>
         <circle cx="540" cy="300" r="92"
-                fill="none" stroke="#9A2A2A" stroke-width="4" opacity="0">
+                fill="none" stroke="#15803D" stroke-width="4" opacity="0">
           <animate attributeName="r"
             values="92;92;92;190;260;260"
             keyTimes="0;0.05;0.07;0.13;0.15;1"
@@ -389,7 +390,7 @@
           </circle>
           <!-- body: cream disk against ink stage -->
           <circle cx="540" cy="300" r="92"
-                  fill="#FBF7EE" stroke="#9A2A2A" stroke-width="5" opacity="0">
+                  fill="#FBF7EE" stroke="#15803D" stroke-width="5" opacity="0">
             <animate attributeName="opacity"
               values="0;1;1;0;0"
               keyTimes="0;0.015;0.135;0.165;1"
@@ -406,7 +407,7 @@
               keyTimes="0;0.02;0.135;0.16;1"
               dur="20s" repeatCount="indefinite"/>
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                  fill="none" stroke="#9A2A2A" stroke-width="2.2"
+                  fill="none" stroke="#15803D" stroke-width="2.2"
                   stroke-linecap="round" stroke-linejoin="round" />
           </g>
         </g>
@@ -494,8 +495,8 @@
                 fill="#EAE3D4" stroke="#B5A88C" stroke-width="2"/>
           <!-- Burner avatar circle on screen -->
           <circle cx="536" cy="234" r="20"
-                  fill="#9A2A2A" opacity=".22" stroke="#9A2A2A" stroke-width="2.4"/>
-          <text class="t-serif" x="536" y="242" text-anchor="middle" font-size="26" fill="#9A2A2A">B</text>
+                  fill="#15803D" opacity=".22" stroke="#15803D" stroke-width="2.4"/>
+          <text class="t-serif" x="536" y="242" text-anchor="middle" font-size="26" fill="#15803D">B</text>
           <!-- Username placeholder lines -->
           <line x1="480" y1="270" x2="592" y2="270" stroke="#B5A88C" stroke-width="2.4"/>
           <line x1="480" y1="284" x2="568" y2="284" stroke="#B5A88C" stroke-width="2.4"/>
@@ -514,12 +515,12 @@
           <rect x="510" y="424" width="52" height="5" rx="2.5" fill="#7A6F58"/>
 
           <!-- BURNER label below -->
-          <text class="t-mono" x="536" y="478" text-anchor="middle" font-size="24" fill="#D4A85A" font-weight="600">BURNER</text>
+          <text class="t-mono" x="536" y="478" text-anchor="middle" font-size="24" fill="#4ADE80" font-weight="600">BURNER</text>
         </g>
 
         <!-- Protective RING -->
         <circle id="protect-ring" cx="536" cy="300" r="172"
-                fill="none" stroke="#9A2A2A" stroke-width="4"
+                fill="none" stroke="#15803D" stroke-width="4"
                 stroke-dasharray="100" stroke-dashoffset="100"
                 pathLength="100"
                 transform="rotate(-90 536 300)"
@@ -540,11 +541,11 @@
             values="0;0;0;0.95;0.95;0;0"
             keyTimes="0;0.20;0.24;0.27;0.305;0.33;1"
             dur="20s" repeatCount="indefinite"/>
-          <circle cx="0" cy="0" r="20" fill="#FBF7EE" stroke="#9A2A2A" stroke-width="3"/>
+          <circle cx="0" cy="0" r="20" fill="#FBF7EE" stroke="#15803D" stroke-width="3"/>
           <path d="M-6 -3 v-5 a6 6 0 0 1 12 0 v5"
-                fill="none" stroke="#9A2A2A" stroke-width="2.6" stroke-linecap="round"/>
+                fill="none" stroke="#15803D" stroke-width="2.6" stroke-linecap="round"/>
           <rect x="-7" y="-3" width="14" height="12" rx="2"
-                fill="#9A2A2A" opacity=".25" stroke="#9A2A2A" stroke-width="2.4"/>
+                fill="#15803D" opacity=".25" stroke="#15803D" stroke-width="2.4"/>
         </g>
       </g>
 
@@ -591,7 +592,7 @@
               calcMode="spline"/>
             <rect x="680" y="240" width="54" height="84" rx="6"
                   fill="#FBF7EE" stroke="#B5A88C" stroke-width="3"/>
-            <polygon points="697,272 697,292 717,282" fill="#9A2A2A"/>
+            <polygon points="697,272 697,292 717,282" fill="#15803D"/>
           </g>
           <!-- Reel 2 -->
           <g opacity="0">
@@ -607,7 +608,7 @@
               calcMode="spline"/>
             <rect x="744" y="240" width="54" height="84" rx="6"
                   fill="#FBF7EE" stroke="#B5A88C" stroke-width="3"/>
-            <polygon points="761,272 761,292 781,282" fill="#9A2A2A"/>
+            <polygon points="761,272 761,292 781,282" fill="#15803D"/>
           </g>
           <!-- Reel 3 -->
           <g opacity="0">
@@ -623,7 +624,7 @@
               calcMode="spline"/>
             <rect x="808" y="240" width="54" height="84" rx="6"
                   fill="#FBF7EE" stroke="#B5A88C" stroke-width="3"/>
-            <polygon points="825,272 825,292 845,282" fill="#9A2A2A"/>
+            <polygon points="825,272 825,292 845,282" fill="#15803D"/>
           </g>
           <!-- Reel 4 -->
           <g opacity="0">
@@ -639,7 +640,7 @@
               calcMode="spline"/>
             <rect x="680" y="332" width="54" height="84" rx="6"
                   fill="#FBF7EE" stroke="#B5A88C" stroke-width="3"/>
-            <polygon points="697,364 697,384 717,374" fill="#9A2A2A"/>
+            <polygon points="697,364 697,384 717,374" fill="#15803D"/>
           </g>
           <!-- Reel 5 -->
           <g opacity="0">
@@ -655,14 +656,14 @@
               calcMode="spline"/>
             <rect x="744" y="332" width="54" height="84" rx="6"
                   fill="#FBF7EE" stroke="#B5A88C" stroke-width="3"/>
-            <polygon points="761,364 761,384 781,374" fill="#9A2A2A"/>
+            <polygon points="761,364 761,384 781,374" fill="#15803D"/>
           </g>
         </g>
 
         <!-- TRAY — outline that contains the cascaded reels -->
         <g id="tray-grp">
           <rect id="tray-base" x="660" y="220" width="0" height="0" rx="10"
-                fill="none" stroke="#9A2A2A" stroke-width="4" opacity="0">
+                fill="none" stroke="#15803D" stroke-width="4" opacity="0">
             <animate attributeName="width"
               values="0;0;240;240;240;240;240;240"
               keyTimes="0;0.27;0.36;0.43;0.45;0.58;0.61;1"
@@ -678,7 +679,7 @@
           </rect>
 
           <!-- Tray label -->
-          <text class="t-mono" x="780" y="466" text-anchor="middle" font-size="22" opacity="0" fill="#D4A85A">
+          <text class="t-mono" x="780" y="466" text-anchor="middle" font-size="22" opacity="0" fill="#4ADE80">
             PAST REELS · TRAINING SET
             <animate attributeName="opacity"
               values="0;0;0;0.9;0.9;0;0"
@@ -718,7 +719,7 @@
           calcMode="spline"/>
         <!-- Dashed connection — from below-phone down to editor top -->
         <line x1="538" y1="450" x2="538" y2="550"
-              stroke="#9A2A2A" stroke-width="3.2"
+              stroke="#15803D" stroke-width="3.2"
               stroke-dasharray="6 7" opacity="0">
           <animate attributeName="opacity"
             values="0;0;0;0.7;0.7;0;0"
@@ -758,8 +759,8 @@
               values="0;0;0;1;1;1;1;0;0"
               keyTimes="0;0.46;0.475;0.49;0.58;0.61;0.75;0.78;1"
               dur="20s" repeatCount="indefinite"/>
-            <circle cx="208" cy="592" r="6" fill="#9A2A2A"/>
-            <circle cx="228" cy="592" r="6" fill="#D4A85A"/>
+            <circle cx="208" cy="592" r="6" fill="#15803D"/>
+            <circle cx="228" cy="592" r="6" fill="#4ADE80"/>
             <circle cx="248" cy="592" r="6" fill="#4F6B3A"/>
             <text class="t-mono" x="540" y="600" text-anchor="middle" font-size="20" fill="#7A6F58">
               prompt.py — ACCEPT CRITERIA
@@ -785,7 +786,7 @@
           <!-- Typing rects (lines of code, sized for big editor) -->
           <g>
             <!-- line 1 keyword + token -->
-            <rect x="248" y="646" width="0" height="18" fill="#9A2A2A" opacity="0">
+            <rect x="248" y="646" width="0" height="18" fill="#15803D" opacity="0">
               <animate attributeName="opacity"
                 values="0;0;0;0.9;0.9;0.9;0.9;0;0"
                 keyTimes="0;0.49;0.50;0.51;0.58;0.61;0.75;0.78;1"
@@ -811,7 +812,7 @@
             </rect>
 
             <!-- line 2 -->
-            <rect x="248" y="686" width="0" height="18" fill="#C2532A" opacity="0">
+            <rect x="248" y="686" width="0" height="18" fill="#166534" opacity="0">
               <animate attributeName="opacity"
                 values="0;0;0;0.9;0.9;0.9;0.9;0;0"
                 keyTimes="0;0.51;0.52;0.53;0.58;0.61;0.75;0.78;1"
@@ -837,7 +838,7 @@
             </rect>
 
             <!-- line 3 -->
-            <rect x="248" y="726" width="0" height="18" fill="#D4A85A" opacity="0">
+            <rect x="248" y="726" width="0" height="18" fill="#4ADE80" opacity="0">
               <animate attributeName="opacity"
                 values="0;0;0;0.85;0.85;0.85;0.85;0;0"
                 keyTimes="0;0.53;0.54;0.545;0.58;0.61;0.75;0.78;1"
@@ -880,7 +881,7 @@
               keyTimes="0;0.52;0.53;0.54;0.58;0.61;0.75;0.78;1"
               dur="20s" repeatCount="indefinite"/>
             <rect x="688" y="650" width="180" height="60" rx="30"
-                  fill="#FBF7EE" stroke="#9A2A2A" stroke-width="3"/>
+                  fill="#FBF7EE" stroke="#15803D" stroke-width="3"/>
             <text class="t-mono" x="710" y="688" font-size="20" fill="#7A6F58">EVALS</text>
             <text class="t-mono t-mono-accent" x="858" y="688" font-size="24" text-anchor="end" font-weight="600">
               <tspan id="evals-num">12/18</tspan>
@@ -936,7 +937,7 @@
 
           <!-- Loop circle (dashed orbit) -->
           <circle cx="540" cy="480" r="430"
-                  fill="none" stroke="#9A2A2A" stroke-width="3.6"
+                  fill="none" stroke="#15803D" stroke-width="3.6"
                   stroke-dasharray="100" stroke-dashoffset="100"
                   pathLength="100"
                   stroke-linecap="round"
@@ -948,7 +949,7 @@
           </circle>
 
           <!-- Arrowhead at top (rotation -90 origin: top is at (540, 50)) -->
-          <polygon points="540,50 522,70 558,70" fill="#9A2A2A" opacity="0">
+          <polygon points="540,50 522,70 558,70" fill="#15803D" opacity="0">
             <animate attributeName="opacity"
               values="0;0;0;0;1;1;1;0;0"
               keyTimes="0;0.58;0.60;0.685;0.69;0.755;0.93;0.965;1"
@@ -961,7 +962,7 @@
               values="0;0;0;0;1;1;0.4;0;0"
               keyTimes="0;0.58;0.60;0.69;0.70;0.755;0.78;0.79;1"
               dur="20s" repeatCount="indefinite"/>
-            <circle r="11" fill="#D4A85A" stroke="#1C1812" stroke-width="3">
+            <circle r="11" fill="#4ADE80" stroke="#1C1812" stroke-width="3">
               <animateMotion
                 path="M 540 50 A 430 430 0 1 1 539.9 50 Z"
                 dur="3s"
@@ -1035,7 +1036,7 @@
           <text class="t-mono" x="88" y="598" font-size="22" fill="#7A6F58">SCAN LOG · LIVE</text>
           <!-- Counter top right -->
           <g>
-            <rect x="824" y="578" width="172" height="32" rx="6" fill="#1C1812" stroke="#9A2A2A" stroke-width="2"/>
+            <rect x="824" y="578" width="172" height="32" rx="6" fill="#1C1812" stroke="#15803D" stroke-width="2"/>
             <text class="t-mono" x="840" y="602" font-size="20" fill="#B5A88C">REELS</text>
             <text class="t-mono t-mono-accent" x="984" y="602" font-size="22" text-anchor="end" font-weight="600">
               <tspan id="reel-counter">12</tspan>
@@ -1073,7 +1074,7 @@
             <text class="t-mono" x="150" y="690" font-size="16" fill="#1C1812">@_studio.dance</text>
             <rect x="392" y="672" width="340" height="28" rx="4" fill="#3A3328"/>
             <line x1="404" y1="686" x2="724" y2="686" stroke="#B5A88C" stroke-width="2.2"/>
-            <rect x="748" y="668" width="160" height="36" rx="18" fill="#9A2A2A"/>
+            <rect x="748" y="668" width="160" height="36" rx="18" fill="#B23A2E"/>
             <text class="t-label" x="828" y="691" text-anchor="middle" font-size="18" fill="#FBF7EE">REJECT</text>
             <text class="t-mono" x="930" y="690" font-size="16" fill="#B5A88C">0.4s</text>
           </g>
@@ -1139,7 +1140,7 @@
             <text class="t-mono" x="150" y="822" font-size="16" fill="#1C1812">@cafe.delhi</text>
             <rect x="392" y="804" width="340" height="28" rx="4" fill="#3A3328"/>
             <line x1="404" y1="818" x2="680" y2="818" stroke="#B5A88C" stroke-width="2.2"/>
-            <rect x="748" y="800" width="160" height="36" rx="18" fill="#9A2A2A"/>
+            <rect x="748" y="800" width="160" height="36" rx="18" fill="#B23A2E"/>
             <text class="t-label" x="828" y="823" text-anchor="middle" font-size="18" fill="#FBF7EE">REJECT</text>
             <text class="t-mono" x="930" y="822" font-size="16" fill="#B5A88C">0.6s</text>
           </g>
@@ -1179,7 +1180,7 @@
             <circle cx="322" cy="950" r="7" fill="#FBF7EE"/>
             <text class="t-mono" x="340" y="956" font-size="18" fill="#FBF7EE" font-weight="600">3 ACCEPT</text>
 
-            <rect x="454" y="932" width="138" height="36" rx="18" fill="#9A2A2A"/>
+            <rect x="454" y="932" width="138" height="36" rx="18" fill="#B23A2E"/>
             <circle cx="476" cy="950" r="7" fill="#FBF7EE"/>
             <text class="t-mono" x="494" y="956" font-size="18" fill="#FBF7EE" font-weight="600">3 REJECT</text>
 
@@ -1188,7 +1189,7 @@
             <text class="t-mono" x="648" y="956" font-size="18" fill="#FBF7EE" font-weight="600">2 REVIEW</text>
 
             <!-- WEEK 1 badge -->
-            <rect x="820" y="932" width="176" height="36" rx="6" fill="#D4A85A"/>
+            <rect x="820" y="932" width="176" height="36" rx="6" fill="#4ADE80"/>
             <text class="t-mono" x="908" y="956" text-anchor="middle" font-size="18" fill="#1C1812" font-weight="600">WEEK 1 · 87 REELS</text>
           </g>
         </g>
@@ -1217,7 +1218,7 @@
 </div>
 
 <script>
-  // Reveal the SVG only once Instrument Serif italic is loaded.
+  // Reveal the SVG only once Space Grotesk is loaded.
   (function () {
     function reveal() {
       document.body.classList.add('fonts-ready');
@@ -1330,9 +1331,9 @@
     }
     if (document.fonts && document.fonts.load) {
       Promise.all([
-        document.fonts.load('italic 76px "Instrument Serif"'),
+        document.fonts.load('700 76px "Space Grotesk"'),
         document.fonts.load('500 22px "JetBrains Mono"'),
-        document.fonts.load('600 26px "Schibsted Grotesk"')
+        document.fonts.load('600 26px "Inter"')
       ]).then(reveal).catch(reveal);
       setTimeout(reveal, 1500);
     } else {

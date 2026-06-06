@@ -7,17 +7,20 @@
 <meta name="description" content="AI-enabled scraping of Instagram Reels and the Meta Ads Library, customised for your target audience. Viral reel and ad ideas, surfaced automatically — with a real AI engineer in the loop." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper:   #F2EDE3;
-    --paper-2: #EAE3D4;
-    --ink:     #1C1812;
-    --ink-2:   #524837;
-    --ink-3:   #8B7E68;
-    --accent:  #9A2A2A;
-    --accent-2:#C2532A;
-    --rule:    #D4C8B0;
+    /* Reconciled to agentropic.ai brand world (forest green on warm ivory) */
+    --paper:   #FBF7EC;   /* agentropic surface-50 — page bg */
+    --paper-0: #FFFDF7;   /* agentropic surface-0 — cards pop off the bg */
+    --paper-2: #F4EEDF;   /* agentropic surface-100 — slightly deeper */
+    --ink:     #1C1917;   /* agentropic surface-900 — warm ink */
+    --ink-2:   #524837;   /* warm muted earth (kept) */
+    --ink-3:   #8B7E68;   /* softest ink (kept) */
+    --accent:  #15803D;   /* agentropic brand-500 — forest green workhorse */
+    --accent-2:#166534;   /* agentropic brand-600 — deeper green */
+    --accent-bright:#059669; /* agentropic emerald — big display highlight */
+    --rule:    rgba(28,25,23,0.12);  /* agentropic hairline (faint ink) */
     --shadow-soft: 0 1px 0 rgba(28,24,18,.04), 0 2px 6px rgba(28,24,18,.06), 0 8px 24px -8px rgba(28,24,18,.10);
     --shadow-lift: 0 1px 0 rgba(28,24,18,.04), 0 6px 14px rgba(28,24,18,.10), 0 22px 38px -16px rgba(28,24,18,.18);
   }
@@ -28,7 +31,7 @@
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font-family: "Schibsted Grotesk", system-ui, -apple-system, sans-serif;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
     font-size: 17px;
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
@@ -50,9 +53,9 @@
 
   /* Typography */
   .display {
-    font-family: "Instrument Serif", "Times New Roman", serif;
-    font-weight: 400;
-    letter-spacing: -0.022em;
+    font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
     line-height: 1.02;
   }
   .mono {
@@ -72,11 +75,13 @@
   h2 { font-size: clamp(34px, 9vw, 44px); margin: 18px 0 0; }
   h3 { font-size: 18px; margin: 0 0 6px; font-weight: 600; letter-spacing: -0.005em; }
   p  { margin: 0 0 14px; color: var(--ink-2); }
-  em.serif { font-family: "Instrument Serif", serif; font-style: italic; font-size: 1.08em; color: var(--ink); }
+  /* Emphasis device, reconciled to agentropic: accent-coloured word in the
+     same face (Space Grotesk in headings, Inter in body), not italic-serif. */
+  em.serif { font-family: inherit; font-style: normal; font-weight: 600; color: var(--accent-bright); }
 
   /* Hero */
   .hero { padding-block: 56px 60px; border-top: none; }
-  .hero h1 .it { font-style: italic; }
+  .hero h1 .it { color: var(--accent-bright); font-style: normal; }
   .hero .sub {
     margin-top: 20px;
     font-size: 18px;
@@ -110,7 +115,8 @@
     background: var(--ink);
     color: var(--paper);
     border: none; border-radius: 999px;
-    font: 600 15px/1 "Schibsted Grotesk", sans-serif;
+    font: 500 13px/1 "JetBrains Mono", ui-monospace, monospace;
+    text-transform: uppercase; letter-spacing: 0.12em;
     text-decoration: none;
     cursor: pointer;
     transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
@@ -119,7 +125,7 @@
   .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-lift); background: #2A2218; }
   .btn .arrow {
     display: inline-block; transition: transform .18s ease;
-    font-family: "Instrument Serif", serif; font-size: 20px; line-height: 1;
+    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 15px; line-height: 1;
   }
   .btn:hover .arrow { transform: translateX(3px); }
   .btn-ghost {
@@ -135,10 +141,10 @@
 
   /* Pull statements (replace paragraphs) */
   .statement {
-    font-family: "Instrument Serif", serif;
+    font-family: "Inter", system-ui, sans-serif;
     font-style: italic;
     font-size: clamp(22px, 5.6vw, 26px);
-    line-height: 1.25;
+    line-height: 1.3;
     color: var(--ink);
     margin: 22px 0 0;
     letter-spacing: -0.01em;
@@ -159,7 +165,7 @@
     margin-top: 36px;
   }
   .pc {
-    background: var(--paper);
+    background: var(--paper-0);
     border: 1px solid var(--rule);
     border-radius: 14px;
     padding: 18px 14px 16px;
@@ -273,7 +279,7 @@
   .step-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
   .step-card {
     flex: 0 0 268px;
-    background: var(--paper);
+    background: var(--paper-0);
     border: 1px solid var(--rule);
     border-radius: 12px;
     padding: 18px 18px 16px;
@@ -294,8 +300,9 @@
     text-transform: uppercase;
   }
   .step-card .step-title {
-    font-family: "Instrument Serif", "Times New Roman", serif;
-    font-style: italic;
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 600;
     font-size: 24px;
     font-weight: 400;
     line-height: 1.1;
@@ -344,7 +351,7 @@
   .cards { margin-top: 36px; display: flex; flex-direction: column; gap: 12px; }
   .card {
     position: relative;
-    background: var(--paper);
+    background: var(--paper-0);
     border: 1px solid var(--rule);
     border-radius: 12px;
     box-shadow: var(--shadow-soft);
@@ -375,7 +382,7 @@
     display: inline-flex; align-items: center; justify-content: center;
     color: var(--ink-3);
     transition: transform .25s ease, color .25s ease;
-    font-family: "Instrument Serif", serif;
+    font-family: "Space Grotesk", "Inter", sans-serif;
     font-size: 18px;
   }
   .card[open] summary .caret { transform: rotate(180deg); color: var(--accent); }
@@ -406,7 +413,7 @@
     align-items: center;
     gap: 16px;
     padding: 18px 20px;
-    background: var(--paper);
+    background: var(--paper-0);
     border: 1px solid var(--rule);
     border-radius: 14px;
     box-shadow: var(--shadow-soft);
@@ -428,8 +435,9 @@
   }
   .engineer-byline .who { min-width: 0; }
   .engineer-byline .name {
-    font-family: "Instrument Serif", serif;
-    font-style: italic;
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 600;
     font-size: 24px;
     line-height: 1.1;
     color: var(--ink);
@@ -473,7 +481,7 @@
     position: absolute;
     right: 0; top: 18px;
     width: 20px; height: 20px;
-    font-family: "Instrument Serif", serif;
+    font-family: "Space Grotesk", "Inter", sans-serif;
     font-size: 22px; line-height: 18px;
     color: var(--accent);
     text-align: right;
@@ -490,8 +498,10 @@
   /* Final CTA */
   .final { padding-block: 100px; }
   .final h2 {
-    font-family: "Instrument Serif", serif;
-    font-style: italic;
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.03em;
     font-size: clamp(38px, 10vw, 56px);
     line-height: 1.02;
     margin-bottom: 28px;
